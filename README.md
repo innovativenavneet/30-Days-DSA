@@ -217,5 +217,4 @@ Example Markdown Tracker:
 
 - [x] Day 1: Big O & Array Basics
 - [x] Day 2: Two-Pointers
-- [ ] Day 3: Sliding Window
 ```
