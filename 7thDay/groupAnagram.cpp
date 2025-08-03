@@ -39,6 +39,40 @@ public:
             cout << " ]" << endl;
         }
     }
+    void grAnagram2(vector<string> &strs)
+    {
+        unordered_map<string, vector<string>> mp;
+
+        for (string &s : strs)
+        {
+            // Build a character count key
+            vector<int> count(26, 0);
+            for (char c : s)
+            {
+                count[c - 'a']++;
+            }
+
+            // Convert count to a string key
+            string key;
+            for (int i = 0; i < 26; ++i)
+            {
+                key += "#" + to_string(count[i]);
+            }
+
+            mp[key].push_back(s);
+        }
+
+        // Print result
+        for (auto &group : mp)
+        {
+            cout << "[ ";
+            for (auto &word : group.second)
+            {
+                cout << "\"" << word << "\", ";
+            }
+            cout << "]\n";
+        }
+    }
 };
 
 int main()
@@ -52,5 +86,6 @@ int main()
       The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.*/
 
     s.grAnagram(str);
+    s.grAnagram2(str);
     return 0;
 }
